@@ -1,0 +1,16 @@
+/*index html**/
+.login{
+	margin-top: 20%;
+}
+.loginButton{
+	float:right;
+}
+.dropdownDesign{
+	min-width: 200px;
+}
+.dropdownDesign span{
+	float:right;
+}
+.wrapper{
+	margin-top: 3em;
+}

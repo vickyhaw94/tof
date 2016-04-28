@@ -17,11 +17,11 @@ require 'db_connection.php';
 
 $sqltbl = "CREATE TABLE user(
                 uid int NOT NULL AUTO_INCREMENT,
-                username varchar(255) NOT NULL,
                 email varchar(255) NOT NULL,
                 password varchar(255) NOT NULL,
                 dateJoined varchar(255) NOT NULL,
-                PRIMARY KEY (uid)
+                gender varchar(255) NOT NULL,
+                PRIMARY KEY (uid,email)
             )";
 
 if($conn -> query($sqltbl)){

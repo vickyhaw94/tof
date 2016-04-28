@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head> 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>UNIss</title>
-	<!--Bootstrap-->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-</head>
-<body>
+<?php include "templates/document-header.php"; ?>
 	<div class="container">
 		<div class="row">
 			<div class="login col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
@@ -113,9 +102,4 @@
 			</div>
 		</div>
 	</div>
-	
-<!--script reference-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+<?php include "templates/document-footer.php";?>

@@ -14,7 +14,7 @@
 								
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 							</span>
-								<input id="user" type="text" class="form-control" name="username" placeholder="Username">
+								<input id="email" type="text" class="form-control" name="email" placeholder="Email">
 							</div>
 							
 							
@@ -33,9 +33,17 @@
 							<div class="loginButton">
 							<button type="submit" class="btn btn-primary">Login</button>
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myRegister">Register</button>
-								
-				<div class="modal fade bs-exmaple-modal-md" id="myRegister" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-md" role="document">      
+								</div>
+                        </form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <!-- Register Modal-->
+<div class="modal fade bs-exmaple-modal-md registerM" id="myRegister" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md registerM-dialog" role="document">      
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -43,63 +51,34 @@
             </div>
             <div class="modal-body">
                 <form id="frmRegister">
-				        <div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>	
-							<input type="text" id="name" name="name" placeholder="Name" class="form-control" required>
-						</div>
-							<br>
+				        
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 							<input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
                             </div>
                             <span id="emailError"></span>
                             <br>
+						
+						
 						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>	
-							<input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
-						</div>
-							
-							<br>
-						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 							<input type="password" placeholder="Password" class="form-control" name="password" required>
 						</div>
                             <span id="password"></span>
 						<br>
 						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 							<input type="password"  placeholder="Confirm Password" name="passwordRepeat" class="form-control" required>
 						</div>
                             <span id="passwordRepeat"></span>
 						<br>
-					
-						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
-							<div class="dropdown">
-								<button class="btn btn-default dropdown-toggle dropdownDesign" type="button" data-toggle="dropdown">Gender<span class="caret"></span></button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Boy</a></li>
-									<li><a href="#">Girl</a></li>
-								</ul>
-								
-							</div>
-						</div>
-						
-							<div class="input-group loginButton">
-                            <button type="submit" class="btn btn-default" id="btnRegister">Register</button>
-							</div>
-						<br>
+                            <button type="submit" class="btn btn-primary" id="btnRegister">Register</button>
                         </form>
 					</div>
-					
+					<div class="modal-footer">
+						<p id="registerResponse"></p>
+					</div>
                 </div>
 			</div>
 		</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 <?php include "templates/document-footer.php";?>

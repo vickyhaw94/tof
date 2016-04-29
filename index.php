@@ -8,7 +8,7 @@
 					</div>
 					
 					<div class="panel-body">
-						<form name="form" id="form" class="form-horizontal">
+						<form name="form" id="frmLogin" class="form-horizontal">
 							
 							<div class="input-group">
 								
@@ -33,6 +33,7 @@
 							<div class="loginButton">
 							<button type="submit" class="btn btn-primary">Login</button>
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myRegister">Register</button>
+                            <p id="loginResponse"></p>
 								</div>
                         </form>
 				</div>

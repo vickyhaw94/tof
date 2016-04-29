@@ -1,4 +1,3 @@
-         
 $("#frmRegister").submit(function(e){
                 e.preventDefault();
                 $.ajax({
@@ -34,4 +33,32 @@ $("#frmRegister").submit(function(e){
                     }
         });
 });
+
+$("#frmLogin").submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "php/login_action.php",
+                    data: $("#frmLogin").serialize(),
+                    async:false,
+                    success: function(data) {
+                        if(data == "success"){
+                            
+                            document.getElementById("loginResponse").innerHTML = "Logging in..";
+                            
+                            $("#loginResponse").fadeOut(2000);
+                            setTimeout(function() {
+                                document.location.href = "profile.php";
+                            }, 1000);
+                        }else if(data == "incorrect"){
+                            document.getElementById("loginResponse").innerHTML = "Invalid password or email.";
+                            $("#loginResponse").fadeOut(5000);
+                        }else if(data == "unsuccessful"){
+                            document.getElementById("loginResponse").innerHTML = "Invalid password or email.";
+                            $("#loginResponse").fadeOut(5000);
+                        }
+                    }
+                   
+                });
+             });
                 

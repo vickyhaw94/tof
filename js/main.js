@@ -48,7 +48,7 @@ $("#frmLogin").submit(function(e){
                             
                             $("#loginResponse").fadeOut(2000);
                             setTimeout(function() {
-                                document.location.href = "profile.php";
+                                document.location.href = "home.php";
                             }, 1000);
                         }else if(data == "incorrect"){
                             document.getElementById("loginResponse").innerHTML = "Invalid password or email.";
@@ -61,4 +61,3 @@ $("#frmLogin").submit(function(e){
                    
                 });
              });
-                

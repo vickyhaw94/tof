@@ -1,3 +1,25 @@
+
+/**
+header color:#36648B
+hover over color : #2F2F4F 
+background-color grey :#525C65 
+**/
+html{}
+
+body{
+    background-color:#525C65 ;
+    padding-top:75px;
+	width:100%;
+}
+
+#navigation{
+    border-radius: 5px 5px;
+}
+
+#content{
+     border-radius: 5px 5px;
+}
+
 /*index html**/
 .login{
 	margin-top: 20%;
@@ -11,6 +33,27 @@
 .dropdownDesign span{
 	float:right;
 }
-.wrapper{
-	margin-top: 3em;
+
+.navbar .navbar-brand {
+    color:white;
 }
+.navbar-inverse{
+    background-color:#36648B ;
+}
+
+.navbar .nav > li> a{
+    color:white;   
+}
+
+.navbar .nav > .active > a{
+    background-color:#2F2F4F;
+}
+
+.navbar .nav > li > a:hover {
+    background-color:#2F2F4F ;
+}
+
+.navbar .navbar-right > li > a:hover{
+    background-color:#2F2F4F ;
+}
+

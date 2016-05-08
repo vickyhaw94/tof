@@ -30,6 +30,50 @@ if($conn -> query($sqltbl)){
     echo "tbl user failed <br/>";
 }
 
+$sqltbl2= "CREATE TABLE topic(
+            topicId int NOT NULL AUTO_INCREMENT,
+            topic varchar(255) NOT NULL,
+            PRIMARY KEY(topicId)
+        )";
+
+if($conn -> query($sqltbl2)){
+    echo "tbl topic created";
+}else{
+    echo "tbl topic failed to create";
+}
+
+$sqltbl3= "CREATE TABLE post(
+            postId int NOT NULL AUTO_INCREMENT,
+            postTitle varchar(255) NOT NULL,
+            postContent text NOT NULL,
+            postDate varchar(255) NOT NULL,
+            uid int NOT NULL,
+            topicId int NOT NULL,
+            PRIMARY KEY(postId),
+            FOREIGN KEY(uid) REFERENCES user(uid),
+            FOREIGN KEY(topicId) REFERENCES topic(topicId)
+        )";
+
+if($conn -> query($sqltbl3)){
+    echo "tbl post created";
+}else{
+    echo "tbl post failed to create";
+}
+
+$sqltbl4 = "CREATE TABLE comment(
+            commentId int NOT NULL AUTO_INCREMENT,
+            comment text NOT NULL,
+            commentDate varchar(255) NOT NULL,
+            postId int NOT NULL,
+            PRIMARY KEY(commentId),
+            FOREIGN KEY(postId) REFERENCES post(postId)
+        )";
+
+if($conn -> query($sqltbl4)){
+    echo "tbl comment created";
+}else{
+    echo "tbl comment failed to create";
+}
 
 
 $conn->close();

@@ -3,7 +3,7 @@ require "db_connection.php";
 
 $email = mysqli_real_escape_string($conn, $_POST["email"]);
 $password = crypt(mysqli_real_escape_string($conn, $_POST["password"]), '$6$rounds=1000$salted$');
-
+$response = array();
 if(isset($email) && isset($password)) {
     $sql = "SELECT * FROM `user` WHERE `email` = '$email'";
 	$result = $conn-> query($sql);
@@ -14,13 +14,19 @@ if(isset($email) && isset($password)) {
         if ( (strcmp($row["password"], $password) == 0 ) ) {
 			$_SESSION["email"] = $row["email"];
 			$_SESSION["uid"] = $row["uid"];
-            echo "success";
+            $response["success"] =1;
+            $response["message"] = "success";
+            echo json_encode($response);
         
         }else{
-            echo "incorrect";
+            $response["success"]=0;
+            $response["message"]= "incorrect";
+            echo json_encode($response);
         }
 	} else {
-		echo "unsuccessful";
+		$response["success"]=0;
+        $response["message"]="unsuccessful";
+        echo json_encode($response);
 	}
 }
 

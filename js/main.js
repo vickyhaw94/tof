@@ -20,12 +20,13 @@ $("#frmRegister").submit(function(e){
                             }else if(data["message"]  == "email_used") {
                                 document.getElementById("emailError").innerHTML = "Email in used";
                                 $("#emailError").fadeOut(4000);
-                           
+                                $("frmRegister").trigger("reset");
                             } else if (data["message"]  == "password_not_match") {
                                 document.getElementById("password").innerHTML = "Password not match with password repeats";
                                 document.getElementById("passwordRepeat").innerHTML = "Password not match with password repeats";
                                     $("#password").fadeOut(4000);
                                     $("#passwordRepeat").fadeOut(4000);
+                                    $("frmRegister").trigger("reset");
                            
                                 //document.getElementById("msgContent").innerHTML = "Registration is unsuccessful. Make sure that your password matches.";
                             }
@@ -40,24 +41,30 @@ $("#frmLogin").submit(function(e){
                     type: "POST",
                     url: "php/login_action.php",
                     data: $("#frmLogin").serialize(),
+                    dataType:"JSON",
                     async:false,
                     success: function(data) {
-                        if(data == "success"){
-                            
-                            document.getElementById("loginResponse").innerHTML = "Logging in..";
-                            
-                            $("#loginResponse").fadeOut(2000);
-                            setTimeout(function() {
-                                document.location.href = "home.php";
-                            }, 1000);
-                        }else if(data == "incorrect"){
-                            document.getElementById("loginResponse").innerHTML = "Invalid password or email.";
-                            $("#loginResponse").fadeOut(5000);
-                        }else if(data == "unsuccessful"){
-                            document.getElementById("loginResponse").innerHTML = "Invalid password or email.";
-                            $("#loginResponse").fadeOut(5000);
+                        if(data["success"] ==1){
+                            console.log("1?");
+                            if(data["message"] == "success"){
+                                document.getElementById("loginResponse").innerHTML = "Logging in..";
+                                $("#loginResponse").fadeOut(2000);
+                                setTimeout(function() {
+                                    document.location.href = "home.php";
+                                }, 1000);
+                            }
+                        }else if(data["success"] == 0){
+                            if(data["message"] == "incorrect"){
+                                document.getElementById("loginResponse").innerHTML = "Invalid password or email.";
+                                $("#loginResponse").fadeOut(5000);
+                                $("#frmLogin").trigger("reset");
+                                
+                            }else if(data["message"] == "unsuccessful"){
+                                document.getElementById("loginResponse").innerHTML = "Invalid password or email.";
+                                $("#loginResponse").fadeOut(5000);
+                                $("#frmLogin").trigger("reset");
+                            }
                         }
                     }
-                   
                 });
              });
